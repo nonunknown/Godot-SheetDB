@@ -32,9 +32,11 @@ Google sheets as database for Godot 3.2 C#
 ## Step 3
 * If you take a look at the *addons/sheet_db* folder you will see a file called **database.cfg**
 * api_key = "YOUR_API_KEY_HERE"
-* api_url
- - go to https://sheet.best/dashboard/sheets click buton view api and copy the url from there
-* tabs = here you'll place the tab names from the bottom of your google sheets
- - for issue avoiding use snake_case i.e(leaderboard,level_data,user_data)
+* api_url =
+    * go to https://sheet.best/dashboard/sheets click buton view api and copy the url from there
+* tabs = 
+    * here you'll place the tab names from the bottom of your google sheets
+    * for issue avoiding use snake_case i.e(leaderboard,level_data,user_data)
 
+## Step 4
 * Go to Godot > Project > Project Settings > Plugin > Set SheetDB to Active
