@@ -5,8 +5,15 @@ Google sheets as database for Godot 3.2 C#
 ### Notes:
     - At the Custom_Model.cs file you can see how to create your models
     - At the SheetDB.cs there is a comment section showing how to POST data
+    - The Compressor.cs file is very **important** if you want to upload *.tscn,*.tres files to the sheets database
     - Any question/suggestion send to issues page
     - Any improvement is welcome
+    
+### TODO:
+- [x] Base for public using
+- [ ] POST,PUT,DELETE system (if you know c# well you can do this already, i mean for sake of simplicity)
+- [ ] Complete Tutorials (Upload *tscn *tres / MD5 verification / showing the power of this ADDON)
+- [ ] API Docs
 
 # Installation
 
