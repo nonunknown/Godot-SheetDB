@@ -1,6 +1,13 @@
 # Godot-SheetDB
 Google sheets as database for Godot 3.2 C#
 
+- version: 0.1.0
+### Notes:
+    - At the Custom_Model.cs file you can see how to create your models
+    - At the SheetDB.cs there is a comment section showing how to POST data
+    - Any question/suggestion send to issues page
+    - Any improvement is welcome
+
 # Installation
 
 ## Step 1
@@ -20,23 +27,54 @@ Google sheets as database for Godot 3.2 C#
       <Private>False</Private>
     </Reference>
 ```
+* And in the compile section
+```
+    <Compile Include="addons\sheet_db\SheetDB.cs" />
+    <Compile Include="addons\sheet_db\Compressor.cs" />
+    <Compile Include="addons\sheet_db\Custom_Model.cs" />
+    <Compile Include="addons\sheet_db\Init.cs" />
+```
 
 ## Step 2
 * Go to https://sheet.best/dashboard/sheets - if u dont have an account, create one using your google account where the sheet is located
 * Click **New Sheet API**
-* Type the Name and then the **SHEET URL**
-* Now click on the gear icon above the view api button
-* Go to security > enable api key > copy your api key
-* click save
+* Type the Name and then place the **GOOGLE SHEET URL**
+* Maybe you have to make the sheet public or share link
 
 ## Step 3
-* If you take a look at the *addons/sheet_db* folder you will see a file called **database.cfg**
-* api_key = "YOUR_API_KEY_HERE"
-* api_url =
-    * go to https://sheet.best/dashboard/sheets click buton view api and copy the url from there
-* tabs = 
-    * here you'll place the tab names from the bottom of your google sheets
-    * for issue avoiding use snake_case i.e(leaderboard,level_data,user_data)
+* If you take a look at the *addons/sheet_db/SheetDB.cs* folder you will see a variable called api_url
+* go to Sheetbest dashboard and click view api and past this url there
+
 
 ## Step 4
 * Go to Godot > Project > Project Settings > Plugin > Set SheetDB to Active
+* if everything goes well the output will be this:
+ ```
+ Starting Sheets Db...
+https://sheet.best/api/sheets/744ccc66/
+if you see the api_url above database is configured successfully
+To use the database just call Sheets.SheetDB from anywhere
+  ```
+
+# Getting Started
+
+## Step 1
+* Create a node
+* Insert a csharp script
+* on ready type:
+ ```csharp
+    using Sheets;
+	public override void _Ready()
+	{
+		string result = "";
+		System.Threading.Thread t = new System.Threading.Thread(async ()=> {
+			result = await SheetDB.GetFullApi();
+			GD.Print("done: "+result);
+			
+
+		});
+		t.Start();
+		
+	}
+```
+
